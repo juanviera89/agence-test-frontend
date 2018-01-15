@@ -1,0 +1,267 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="http://www.agence.com.br/"><img src="./assets/imgs/logo.gif"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" ngbDropdownToggle>
+          Projectos 
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" href="#"> No disponible</a>
+        </div>
+      </li> 
+
+
+      <li class="nav-item dropdown" ngbDropdown>
+          <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" ngbDropdownToggle>
+            Administrativo 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+            <a class="dropdown-item" href="#">No disponible</a>
+          </div>
+        </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" ngbDropdownToggle>
+          Comercial <span class="sr-only">(current)</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" role="button" >Performance Comercial</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+          <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" ngbDropdownToggle>
+            Financiero 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+            <a class="dropdown-item" href="#">No disponible</a>
+          </div>
+      </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+          <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" ngbDropdownToggle>
+            Usuario 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+            <a class="dropdown-item" href="#">No disponible</a>
+          </div>
+        </li>
+  
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid btn-consult-type-container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4 offset-0 offset-md-4 btn-container-col">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button type="button" class="btn " 
+              [class.btn-primary]="perfomanceType=='consultor'"
+              [class.btn-secondary]="perfomanceType!='consultor'"
+              (click)="perfomanceType='consultor'">
+              Consultor</button>
+              <button type="button" class="btn  " 
+              [class.btn-primary]="perfomanceType=='cliente'"
+              [class.btn-secondary]="perfomanceType!='cliente'"
+              (click)="perfomanceType='cliente'">Cliente</button>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid consultor-display-contayner" *ngIf="perfomanceType=='consultor'">
+
+      <div class="row date-picker-container">
+
+        <div class="col-12 datepicker-title">
+          Periodo
+        </div>
+        <div class="col-md-auto col-12 datepicker-period-tag">
+          INICIO
+        </div>
+        <div class="col-md-auto col-6 datepicker-tag"> AÑO
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>{{startDate.year}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item" *ngFor="let year of years" (click)="setYear(year,true)">{{year}}</button>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-auto col-6 datepicker-tag"> MES
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-dark" id="dropdownBasic2" ngbDropdownToggle>{{monthsLabels[startDate.month].substr(0,3)}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                  <button class="dropdown-item" *ngFor="let month of months" (click)="setMonth(month,true)">{{monthsLabels[month]}}</button>
+                  
+                </div>
+              </div>
+        </div>
+        <div class="col-md-auto col-12 datepicker-period-tag">
+          FIN
+        </div>
+        <div class="col-md-auto col-6 datepicker-tag"> AÑO
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-dark" id="dropdownBasic3" ngbDropdownToggle>{{endtDate.year}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+                  <button class="dropdown-item" *ngFor="let year of years" (click)="setYear(year,false)">{{year}}</button>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-auto col-6 datepicker-tag"> MES
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-dark" id="dropdownBasic4" ngbDropdownToggle>{{monthsLabels[endtDate.month].substr(0,3)}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic4">
+                  <button class="dropdown-item" *ngFor="let month of months" (click)="setMonth(month,false)">{{monthsLabels[month]}}</button>
+                </div>
+              </div>
+        </div>
+
+  </div>
+
+  <div class="row consultores-loading-msg"  *ngIf="consultoresList.length == 0">
+    <div class="col ">
+      Cargando lista de consultores. Por favor espere un momento...
+    </div>
+  </div>
+  <div class="row consultores-list" *ngIf="consultoresList.length != 0" >
+
+    
+    <div class="col-10 col-md-5 offset-1 offset-md-0 list-container" >
+      <ul class="list-group consultores-group">
+        <li class="list-group-item consultor-item" *ngFor="let usuario of consultoresList; let i = index" 
+         [class.active] = "usuario['selected']==true" role="button"
+         (click)="usuario['selected']= (usuario['selected']==true ? false : true)" >
+         {{usuario['no_usuario']}}
+        </li>
+      </ul>
+    </div>
+    <div class=" d-none d-md-flex col-md-2 consultores-btn-container">
+      <div class="btn-group-vertical consultores-btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-ligth" (click)="moveConsutores(true)"> >> </button>
+        <button type="button" class="btn btn-ligth" (click)="moveConsutores(false)"> << </button>
+      </div>
+    </div>
+    <div class="col-12 d-flex d-md-none consultores-btn-container">
+      <div class="btn-group consultores-btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-ligth" (click)="moveConsutores(false)"> /\ </button>
+        <button type="button" class="btn btn-ligth" (click)="moveConsutores(true)"> \/ </button>
+      </div>
+    </div>
+    <div class="col-10 col-md-5 offset-1 offset-md-0 list-container">
+      <ul class="list-group consultores-group">
+        <li class="list-group-item consultor-item" *ngFor="let usuario of consultoresSelected; let i = index" 
+         [class.active] = "usuario['selected']==true" role="button"
+         (click)="usuario['selected']= (usuario['selected']==true ? false : true)" >
+         {{usuario['no_usuario']}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="row display-btns-container-row" *ngIf="consultoresList.length != 0" >
+    <div class="col-12 display-btns-container-col">
+      <div class="btn-group display-btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark" [disabled]="consultoresSelected.length == 0"
+        (click)="getRelatorios()"> Relatorio </button>
+        <button type="button" class="btn btn-dark"  [disabled]="consultoresSelected.length == 0"
+        (click)="getGrafico()"> Gráfico </button>
+        <button type="button" class="btn btn-dark"  [disabled]="consultoresSelected.length == 0"
+        (click)="getPizza()"> Pizza </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row data-loading-msg" *ngIf="relatorioLoadingFlag == true">
+      {{relatorioMsg}}
+    </div>
+
+  <div class="row relatorio-container-row" *ngIf="displaySegment == 'relatorio'" >
+
+   
+
+    <div class="container-fluid relatorio-container"  *ngIf="relatorioLoadingFlag == false">
+
+      <div class="row user-row" *ngFor="let co_usuario of obj.keys(relatorios)">
+        <div class="col-12 user-name-title">
+          {{getUserName(co_usuario)}}
+        </div>
+        <div class="col-12 year-container" *ngFor="let year of obj.keys(relatorios[co_usuario])" >
+            <div class="row year-row">
+                <div class="col-sm-12 col-md-2 year-tag">
+                    {{year}}
+                  </div>
+                  <div class="col-sm-12 col-md-10">
+                    <div class="row head-year-row">
+                      <div class="col-sm-12 col-md d-none d-md-block"></div>
+                      <div class="col-3 col-md txt-center"> Receita Líquida</div>
+                      <div class="col-3 col-md txt-center"> Custo Fixo</div>
+                      <div class="col-3 col-md txt-center"> Comissão</div>
+                      <div class="col-3 col-md txt-center"> Lucro</div>
+                    </div>
+                      
+        
+                    <div class="row month-row" [class.row-even]="(i%2)==0" *ngFor="let month of obj.keys(relatorios[co_usuario][year]); let i = index">
+                      <div class="col-12 col-md month-tag relatorio-item txt-center">{{monthsLabels[month]}}</div>
+                      <div class="col-3 col-md relatorio-item txt-center"> {{relatorios[co_usuario][year][month]['receitaLiquida'].toFixed(2)}}</div>
+                      <div class="col-3 col-md relatorio-item txt-center"> {{relatorios[co_usuario][year][month]['custoFijo'].toFixed(2)}}</div>
+                      <div class="col-3 col-md relatorio-item txt-center"> {{relatorios[co_usuario][year][month]['comissao'].toFixed(2)}}</div>
+                      <div class="col-3 col-md relatorio-item txt-center"> {{relatorios[co_usuario][year][month]['lucro'].toFixed(2)}}</div>
+                    </div>
+                    <div class="row total-row" >
+                        <div class="col-12 col-md total-tag txt-center">Saldo</div>
+                        <div class="col-3 col-md relatorio-item txt-center" *ngFor="let total of getTotalPerYear(co_usuario,year)" > 
+                          {{total.toFixed(2)}}
+                        </div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row chart-container" *ngIf="displaySegment == 'grafico'">
+
+    <div class="col-12 col-md-8 offset-0 offset-md-2">
+        <div [chart]="chart"></div>
+    </div>
+
+  </div> 
+
+  <div class="row chart-container" *ngIf="displaySegment == 'pizza'">
+      
+    <div class="col-12 col-md-8 offset-0 offset-md-2">
+        <div [chart]="chart"></div>
+    </div>
+
+  </div>
+</div>
+
+  
+
+  <div class="container-fluid cliente-container" *ngIf="perfomanceType=='cliente'">
+      <div class="row align-items-center justify-content-center">
+          <div class="col " style="display:flex;justify-content:center;align-items:center;">
+              <div class="card cliente-card" style="width: 18rem;">
+                  <img class="card-img-top" src="./assets/imgs/logo.gif" alt="Agence Logo">
+                  <div class="card-body">
+                    <h5 class="card-title"> Vista por clientes</h5>
+                    <p class="card-text">
+                      Para este desarrollo no se encuentra disponible la vista por clientes
+                    </p>
+                    <a href="#" class="btn btn-primary" (click)="perfomanceType='consultor'">Ir a Consultores</a>
+                  </div>
+                </div>
+          </div>
+        </div>
+      
+  </div>

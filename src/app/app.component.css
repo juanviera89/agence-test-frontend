@@ -1,0 +1,211 @@
+.btn-consult-type-container{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.btn-container-col{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    
+}
+.btn-group{
+    -webkit-box-shadow: 5px 5px 5px 0px #A8A8A8;
+     -moz-box-shadow: 5px 5px 5px 0px #A8A8A8;
+     box-shadow: 5px 5px 5px 0px #A8A8A8; 
+ }
+.consultor-display-contayner{
+    border-radius: 10px;
+    background-color: #C4C4D4;
+    margin: 0.8em;
+    width: 95% !important;
+    padding-bottom: 1em;
+}
+ .date-picker-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 3em;
+
+ }
+ .datepicker-title{
+     font-size: 1.5em;
+     font-weight: bold;
+     color: #4F4F64;
+     margin-top: 1em;
+     margin-bottom: 0.6em;
+ }
+ .datepicker-period-tag{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #030303;
+    margin-top: 0.5em;
+    margin-bottom: 0.6em;
+
+ }
+ .datepicker-tag{
+    font-size: 0.9em;
+ }
+
+ .consultores-loading-msg{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #030303;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+ }
+
+ .consultores-list{
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+
+ }
+ .consultores-group{
+    margin-left:auto;
+    margin-right:auto;
+ }
+
+ .consultores-group{
+     border: 2px solid #747481;
+     min-height: 100px;
+     background-color: #E0E0E0;
+ }
+ .consultores-btn-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+ }
+ .consultores-btn-group{
+     margin-left:auto;
+     margin-right:auto; 
+
+ }
+ .consultor-item{
+     border-radius: 0 !important;
+     background-color: #E0E0E0;
+     line-height: 0.6 !important;
+     font-size: 0.9em;
+     text-align: center;
+ }
+ .consultor-item.active{
+    background-color: #343455;
+    color: white;
+    font-weight: bold;
+    border-color: white;
+
+ }
+ .display-btns-container-row{
+    margin-top: 0.5em;
+    padding-bottom: 1em;
+
+ }
+ .display-btns-container-col{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+ }
+ .data-loading-msg{
+     font-size: 2.5em;
+     font-weight: bolder;
+     text-align: center;
+     margin: 1em;
+ }
+ .relatorio-container{
+     width: 95%;
+ }
+ .user-row{
+     
+    border: 1px solid #5C5C5C;
+    margin-bottom: 1em;
+
+ }
+ .user-name-title{
+     
+    font-size: 1.6em;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    color: black
+ }
+ .user-row{
+    background-color: #E6E6E9;
+
+ }
+ .year-container{
+    background-color: #D1D1D1;
+
+ }
+ .year-tag{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 1.4em;
+    font-weight: bold;
+ }
+ .head-year-row .txt-center{
+    background-color: #393949;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+
+ }
+ .month-row{
+     color: black;
+     font-size: 0.8em;
+ }
+ .month-tag{
+     margin-bottom: 0.7em;
+     margin-top: 0.4em;
+     font-weight: bold;
+ }
+ .month-row.row-even{
+    background-color: #9C9CA5;
+
+ }
+ .total-row{
+    background-color: #393949;
+    color: white;
+    font-weight: bold;
+    font-size: 0.7em;
+     
+ }
+ .txt-center{
+     text-align: center;
+ }
+
+ .chart-container{
+     width: 90%;
+     margin-left: auto;
+     margin-right: auto;
+    border: 2px solid #5C5C5C;
+    margin-bottom: 1em;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+
+ }
+
+ .cliente-card{
+     padding: 1em;
+     border-width: 2px;
+     font-weight: bold;
+     display:flex;
+     justify-content:center;
+     align-items:center;
+     background-color: #D1D1D1;
+ }
+ 
